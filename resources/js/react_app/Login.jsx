@@ -84,7 +84,7 @@ export default function Login() {
     return (
         <>
             <main className="container login-main">
-                <Link to={"/"}>Home</Link>
+                <Link to={"/"} className="home-btn">Home</Link>
                 <div className="form-container">
                     <div className="moving-img">
                         <img src="/img/login1.jpeg" alt="" height="100%"/>
@@ -94,6 +94,7 @@ export default function Login() {
                             <img src="/img/login1.jpeg" alt=""/>
                         </div>
                         <div className="login-user" id="signup-user">
+                <Link to={"/"} className="home-btn" style={{display: "none"}}>Home</Link>
                             <h1>Sign-Up</h1>
                             <div className="form-group">
                                 <input type="text" name="name" id="name" placeholder="Name" />
@@ -115,6 +116,7 @@ export default function Login() {
                             <img src="/img/login1.jpeg" alt=""/>
                         </div>
                         <div className="login-user" id="login-user">
+                        <Link to={"/"} className="home-btn" style={{display: "none"}}>Home</Link>
                             <h1>Log In</h1>
                             <div className="form-group">
                                 <input type="email" name="email" id="user-email" placeholder="Email" />

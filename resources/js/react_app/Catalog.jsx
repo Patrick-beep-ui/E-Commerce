@@ -2,7 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import Header from "../components/Header";
 import Product from "../components/Product";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
+import ProductInfo from "./ProductInfo";
 import {useOutletContext} from "react-router-dom"
 
 
@@ -34,7 +35,7 @@ export default function Catalog() {
 
     console.log("Cart in Catalog:", cart);
 
-    const addToCart = (id, productName, productPrice, productImg) => {
+    const addToCart = (id, productName, productPrice, productImg, productStock) => {
         const existingProduct = cart.find(item => item.productName === productName);
 
         if (existingProduct) {
@@ -46,7 +47,7 @@ export default function Catalog() {
             }));
         } else {
             console.log({ id, productName , productPrice, productImg, quantity: 1 })
-            setCart(prevCart => [...prevCart, { id,productName , productPrice, productImg, quantity: 1 }]);
+            setCart(prevCart => [...prevCart, { id,productName , productPrice, productImg, quantity: 1 , productStock}]);
         }
     };    
 
@@ -74,6 +75,8 @@ export default function Catalog() {
     );
   
     const filteredProducts = filteredSofa.concat(filteredChair).concat(filteredLiving);
+
+    <ProductInfo addToCart={addToCart}/>
 
     return (
         <>

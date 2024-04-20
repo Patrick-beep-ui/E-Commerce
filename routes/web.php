@@ -57,14 +57,12 @@ Route::get('/check', function () {
 //Sign-Up Function
 Route::post('/signup', [UserController::class, 'signup'])->name('signup');
 
-//Product Info
+//Controller Routes
 Route::get('/sproduct/show/{name}/{price}/{imgUrl}/{category}', [ProductController::class, 'show'])->name('product.show');
 Route::get('/catalog/items',[ProductController::class,'catalog'])->name('catalog.show');
 Route::get('/catalog/variations',[ProductController::class,'variations'])->name('variations.show');
 Route::get('react/orders/items',[ShowOrderController::class,'orders'])->name('orders.show');
 Route::get('react/admin/orders/{userId}', [AdminOrderController::class, 'adminOrders'])->name('admin.orders');
-//Route::get('/react/admin/orders/{userId}', '');
-
 
 //Route::middleware(['auth:sanctum', 'is.admin'])->get('/admin/orders/{userId}', [ShowOrderController::class, 'adminOrders'])->name('admin.orders');
 
@@ -82,6 +80,7 @@ Route::view('/payment', 'payment')->name('payment');
 Route::view('/index', 'index')->name('home');
 Route::view('/orders', 'orders')->name('orders');
 Route::view('/admin-orders', 'admin-orders')->name('admin-orders');
+Route::view('/user-info', 'user-info')->name('user-info');
 
 
 Route::middleware(['auth:sanctum'])->group(function(){

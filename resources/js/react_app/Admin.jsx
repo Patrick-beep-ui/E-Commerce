@@ -39,7 +39,7 @@ export default function Users() {
         <section className="shop-content user-content">
           {users.map((user) => (
             <div key={user.user_id} className="user-box">
-              <Link to={'/admin-orders/'}>
+              <Link to={`/admin-orders/${user.user_id}`}>
                 <h3>User ID: {user.user_id}</h3>
                 <p>Name: {user.user_name}</p>
                 <p>Email: {user.user_email}</p>

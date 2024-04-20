@@ -23,9 +23,9 @@ export default function Orders() {
   return (
     <>
       <Header />
-      <main className="shop container">
-        <section className="shop-content">
-          <div className="product-box">
+      <main className="shop container orders-container">
+        <section className="orders-list">
+        <span id="order-heading">Orders</span>
             {(() => {
               let counter = 0;
 
@@ -35,28 +35,49 @@ export default function Orders() {
                 {counter++}
 
                 return (
-                  <div key={orderId}>
-                    <h3>Order ID: {counter}</h3>
+                  <div key={orderId} className="order">
+                    <div className="order-creation">
+                        <h3 id="order-number">Order #{orderId}</h3>
+                        <span>Order Placed: {orders[orderId][0].date.creation_date}</span>
+                    </div>
+                    <div className="order-item-details">
+                      <p>Item</p>
+                      <p>Attributes</p>
+                      <p>Quantity</p>
+                      <p>Price</p>
+                    </div>
                     {/** maps the order assigning the id of the order to OrderDetail*/}
                     {orders[orderId].map((orderDetail) => {
                       totalPrice += parseFloat(orderDetail.price);
                       return (
-                        <div key={`${orderId}-${orderDetail.product_name}`}>
-                          <p className="order-product-name">Product: {orderDetail.product_name}</p>
-                          <p className="order-product-category">Category: {orderDetail.category_name}</p>
-                          <p>Quantity: {orderDetail.quantity}</p>
-                          <p>Price: {orderDetail.price}</p>
-                          <br />
+                        <div key={`${orderId}-${orderDetail.product_name}`} className="order-items">
+                          <div className="order-item-img">
+                            <img src={orderDetail.product_image} alt={orderDetail.product_name} />
+                          </div>
+                          <div className="order-item-name order-item">
+                              <p className="order-product-name">{orderDetail.product_name}</p>
+                              <p className="order-product-category">Category: {orderDetail.category_name}</p>
+                          </div>
+                          <div className="order-item-variation order-item">
+                            <span className="item-color order-color" style={{ backgroundColor: '#b38b59' }}></span>
+                          </div>
+                            <div className="order-item-quantity order-item">
+                              <p>x{orderDetail.quantity}</p>
+                            </div>
+                            <div className="order-item-price order-item">
+                            <p>${orderDetail.price}</p>
+                            </div>
                         </div>
+                        
                       );
                     })}
-                    <p>Total Price: {totalPrice.toFixed(2)}</p>
+                    <p id="order-total"> ${totalPrice.toFixed(2)}</p>
+                    
                   </div>
                 );
                 
               });
             })()}
-          </div>
         </section>
       </main>
       <Footer/>

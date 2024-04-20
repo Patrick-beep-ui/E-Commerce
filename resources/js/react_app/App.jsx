@@ -8,7 +8,8 @@ import Catalog from "./Catalog";
 import Orders from "./Orders";
 import ProductInfo from "./ProductInfo";
 import Admin from "./Admin";
-import AdminOrders from "./AdminOrders"
+import AdminOrders from "./AdminOrders";
+import UserInfo from "./UserInfo";
 
 
 
@@ -54,8 +55,12 @@ const router = createBrowserRouter([
                 element: <Admin />
             },
             {
-                path: "/admin-orders",
+                path: "/admin-orders/:id",
                 element: <AdminOrders />
+            },
+            {
+                path: "/user-info",
+                element: <UserInfo />
             }
          
         ]

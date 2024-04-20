@@ -25,7 +25,7 @@ export default function Header() {
             const { is_user_auth } = response.data;
                 if (is_user_auth) {
                         console.log("User is logged in");
-                        navigate('/orders');
+                        navigate('/user-info');
 
                     }
                     else {
@@ -37,28 +37,32 @@ export default function Header() {
                 }
         }
 
-        async function logoutUser() {
-            try {
-                const response = await axios.get('/logout');
-                const { is_auth } = response.data;
-                console.log('Logout successful');
-            } catch (error) {
+        /*
+    async function logoutUser() {
+        try {
+            const response = await axios.get('/logout');
+            const { is_auth } = response.data;
+            console.log('Logout successful');
+            } 
+            catch (error) {
                 console.error('Logout error:', error);
             }
         }
+        */
+
+        /* <i className='bx bx-search-alt-2' id="search-icon"></i> */
 
     return (
         <header>
             <nav className="nav container">
-                <i className='bx bx-search-alt-2' id="search-icon"></i>
-                <div className="search-icon"></div>
+                <div className="search-icon">
+                <i className='bx bxs-user-circle' id="user-icon" onClick={checkUser}></i>
+                </div>
                 <div className="logo">
                     <Link to={'/'}>SUP</Link>
                 </div>
                 <div className="user-icons">
                     <i className='bx bx-cart-alt' id="cart-icon" onClick={openCart}></i>
-                        <i className='bx bxs-user-circle' id="user-icon" onClick={checkUser}></i>
-                        <button id="logout-btn" onClick={logoutUser}>Log-Out</button>
                 </div>
                 <Cart cartItems={cartItems} cartVisible={cartVisible} closeCart={closeCart} />
             </nav>

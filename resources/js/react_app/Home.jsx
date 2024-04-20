@@ -21,9 +21,9 @@ export default function Home() {
                         <p>In a world where convenience is key, our app is designed to be your one-stop-shop for everything related to furniture!</p>
                     </div>
                     <div className="goal-images">
-                        <img src="/img/goal-image1.jpg" alt="" className="product-img" />
-                        <img src="/img/goal-image2.jpg" alt="" className="product-img" />
-                        <img src='/img/goal-image3.jpg' alt="" className="product-img" />
+                        <img src="/img/living-img1.jpg" alt="" className="product-img" />
+                        <img src="/img/living-img2.jpg" alt="" className="product-img" />
+                        <img src='/img/living-img6.jpg' alt="" className="product-img"/>
                     </div>
                 </section>
                 <section className="description section">
@@ -32,7 +32,7 @@ export default function Home() {
                         <p>Streamline the purchase process. Access a diverse range of high-quality products anytime, anywhere.</p>
                     </div>
                     <div className="description-image">
-                        <img src="img/description-image.jpg" alt="" />
+                        <img src="img/description-image3.jpg" alt="" />
                     </div>
                     <h4><Link id="catalog-link" to={'/catalog'}>Go to Catalog
                         <span className="svg svg__arrow" aria-hidden="true">

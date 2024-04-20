@@ -31,7 +31,8 @@ class ProductController extends Controller
                 'product_variations.name as variation_name',
                 'product_variations.path as path',
                 'product_variations.color as color',
-                'products.path as product_path'
+                'products.path as product_path',
+                DB::raw("CONCAT(product_variations.path,'.jpg') as path")
             )
             ->get()
             ->groupBy('product_id');

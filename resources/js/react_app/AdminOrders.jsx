@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -8,24 +8,23 @@ export default function AdminOrders({userIds }) {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
-  const getOrders = async () => {
-    try {
-        const response = await axios.get(`/react/admin/orders/2`);
-        const { data } = response;
-        setOrders(data.orders);
-    } catch (e) {
-      console.error('Error fetching orders:', e);
-      setError('An error occurred while fetching orders.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
+  const { id } = useParams();
 
   useEffect(() => {
+    const getOrders = async () => {
+      try {
+          const response = await axios.get(`/react/admin/orders/${id}`);
+          const { data } = response;
+          setOrders(data.orders);
+      } catch (e) {
+        console.error('Error fetching orders:', e);
+        setError('An error occurred while fetching orders.');
+      } finally {
+        setLoading(false);
+      }
+    };
     getOrders();
-  }, []);
+  }, [id]);
 
   return (
     <>
