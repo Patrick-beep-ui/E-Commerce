@@ -10,6 +10,7 @@ import ProductInfo from "./ProductInfo";
 import Admin from "./Admin";
 import AdminOrders from "./AdminOrders";
 import UserInfo from "./UserInfo";
+import WhishList from "./WhishList";
 
 
 
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
             {
                 path: "/user-info",
                 element: <UserInfo />
+            },
+            {
+                path: "/whishlist",
+                element: <WhishList />
             }
          
         ]

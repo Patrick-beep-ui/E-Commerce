@@ -13,6 +13,7 @@ export default function Product(props) {
     return (
         <div className="product-box" data-category={category} data-stock={stock}>
             <a href={`/react/product/${id}`}>
+                <i class='bx bx-heart add-to-wishlist'></i>
                 <img className="product-img" src={path} alt={name} />
             </a>
             <h2 className="product-name">{name}</h2>

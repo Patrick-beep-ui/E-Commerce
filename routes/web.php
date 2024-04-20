@@ -12,6 +12,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ShowOrderController;
 use App\Http\Controllers\AdminOrderController;
+use App\Http\Controllers\WhishListController;
 
 
 
@@ -63,6 +64,7 @@ Route::get('/catalog/items',[ProductController::class,'catalog'])->name('catalog
 Route::get('/catalog/variations',[ProductController::class,'variations'])->name('variations.show');
 Route::get('react/orders/items',[ShowOrderController::class,'orders'])->name('orders.show');
 Route::get('react/admin/orders/{userId}', [AdminOrderController::class, 'adminOrders'])->name('admin.orders');
+Route::get('react/whishlist/items', [WhishlistController::class, 'show'])->name('whishlist.items');
 
 //Route::middleware(['auth:sanctum', 'is.admin'])->get('/admin/orders/{userId}', [ShowOrderController::class, 'adminOrders'])->name('admin.orders');
 
@@ -70,6 +72,7 @@ Route::get('react/users',[UserController::class,'getUsers'])->middleware('is.adm
 // web.php or api.php
 
 Route::post('/place-order', [OrderController::class, 'store']);
+Route::post('/add-to-whishlist', [WhishListController::class, 'store']);
 
 
 // Routes

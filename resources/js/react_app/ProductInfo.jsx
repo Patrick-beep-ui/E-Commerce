@@ -11,7 +11,7 @@ export default function ProductInfo() {
   const [color, setColor] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState();
-  const [cart, setCart] = useOutletContext();
+  const [cart, setCart, user] = useOutletContext();
 
   useEffect(() => {
     const getProduct = async () => {
@@ -50,6 +50,29 @@ export default function ProductInfo() {
 
     getColors();
   }, [id])
+
+  const addToWhishList = async () => {
+    console.log(user)
+    if(!user?.id) {
+        console.log("Not user")
+        return;
+    }
+    try{
+        const response = await axios.post("/add-to-whishlist",{productId:product.id, user_id:user.id})
+        const {data} = response
+        
+    }catch(e){
+        console.log(e)
+    }
+
+    const wishList = document.querySelector('.add-to-wishlist');
+
+    if (wishList.className === 'bx bx-heart add-to-wishlist') {
+      wishList.classList.replace('bx-heart', 'bxs-heart');
+    } else {
+      wishList.classList.replace('bxs-heart', 'bx-heart');
+    }
+}
 
   const handleAddToCart = () => {
     //Avoid the amount entred to be greater than the product stock
@@ -101,6 +124,7 @@ export default function ProductInfo() {
 
     setQuantity(1);
   };
+
   
 
   return (
@@ -111,6 +135,7 @@ export default function ProductInfo() {
         {product && (
           <section className="product-info">
             <div className="product-info-img">
+              <i class='bx bx-heart add-to-wishlist' onClick={addToWhishList}></i>
               <img src={product.path} alt="Product Image" id="selectedImage"/>
             </div>
             <div className="product-details">

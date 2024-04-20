@@ -73,7 +73,7 @@ export default function UserInfo() {
             <Link to="/orders">
                 My orders
             </Link>
-            <Link to="/orders">
+            <Link to="/whishlist">
                 WhishList
             </Link>
             <Link to="/orders">
