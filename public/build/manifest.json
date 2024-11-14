@@ -1,0 +1,20 @@
+{
+  "public/img/Living-img3.jpg": {
+    "file": "assets/Living-img3-5c30f2f5.jpg",
+    "src": "public/img/Living-img3.jpg"
+  },
+  "public/img/LivingRoom.jpg": {
+    "file": "assets/LivingRoom-51adc202.jpg",
+    "src": "public/img/LivingRoom.jpg"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-94d08266.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/react_app/App.jsx": {
+    "file": "assets/App-8e4bb04c.js",
+    "isEntry": true,
+    "src": "resources/js/react_app/App.jsx"
+  }
+}

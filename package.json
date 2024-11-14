@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "deploy": "gh-pages -d public"
     },
     "devDependencies": {
         "axios": "^1.6.2",
@@ -11,6 +12,7 @@
         "vite": "^4.5.5"
     },
     "dependencies": {
+        "gh-pages": "^6.2.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-hook-form": "^7.48.2",
